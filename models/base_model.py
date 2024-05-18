@@ -2,6 +2,7 @@ import uuid
 from datetime import datetime
 from engine.file_storage import FileStorage
 
+
 class BaseModel:
     def __init__(self, *args, **kwargs):
         id_base = uuid.uuid4()
@@ -23,6 +24,8 @@ class BaseModel:
             created_time = self.created_at
             self.updated_at = created_time
             storage.new(self)
+                setattr(self, key, value)
+
 
     def __str__(self):
         class_name = str(self.__class__.__name__)
@@ -39,4 +42,6 @@ class BaseModel:
         dict_vol['created_at'] = self.created_at.isoformat()
         dict_vol['updated_at'] = self.updated_at.isoformat()
         return dict_vol
+
 """ Testiing"""
+
