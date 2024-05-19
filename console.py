@@ -6,9 +6,10 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
 
+    """The AIRBNB command interpreter."""
+
     prompt = '(hbnb) '
 
-    # ----- commands -----
     def do_EOF(self, line):
         """Exits"""
         return True
