@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Console Cmd """
+
 import cmd
 
 
