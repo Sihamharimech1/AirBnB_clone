@@ -1,7 +1,8 @@
+#!/usr/bin/python3
 import uuid
 from datetime import datetime
-from engine.file_storage import FileStorage
-
+from models.engine.file_storage import FileStorage
+from models import storage
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
@@ -24,7 +25,6 @@ class BaseModel:
             created_time = self.created_at
             self.updated_at = created_time
             storage.new(self)
-                setattr(self, key, value)
 
 
     def __str__(self):
@@ -37,7 +37,7 @@ class BaseModel:
         storage.save()
 
     def to_dict(self):
-        dict_vol = self.__dict__
+        dict_vol = self.__dict__.copy()
         dict_vol['__class__'] = self.__class__.__name__
         dict_vol['created_at'] = self.created_at.isoformat()
         dict_vol['updated_at'] = self.updated_at.isoformat()
