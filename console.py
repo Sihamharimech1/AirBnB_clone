@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
-from models import storage
-
 """Console Cmd """
 
+from models import storage
 import cmd
 from models.base_model import BaseModel
 from models.state import State
