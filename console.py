@@ -6,6 +6,12 @@ from models import storage
 
 import cmd
 from models.base_model import BaseModel
+from models.state import State
+from models.review import Review
+from models.user import User
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
 
 
@@ -15,7 +21,13 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
     classes = {"BaseModel": BaseModel,
-               "FileStorage": FileStorage}
+               "FileStorage": FileStorage,
+               "Amenity": Amenity,
+               "City": City,
+               "Place": Place,
+               "Review": Review,
+               "State": State,
+               "User": User}
 
     def do_EOF(self, line):
         """Exits"""
